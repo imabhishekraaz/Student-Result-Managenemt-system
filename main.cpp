@@ -1,7 +1,10 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<fstream>
+#include "json.hpp"
 using namespace std;
+using json = nlohmann::json;
 
 class StudentResultManagementSystem{
 
@@ -11,6 +14,18 @@ vector <string> subjectNames = {"Math","English","physics","Chemistry","Hindi"};
 vector <string> studentsNames;
 vector <int> studentAges;
 vector <int> marks;
+
+
+StudentResultManagementSystem (){
+    ifstream file("data.json");
+}
+
+void savedData(){
+    ofstream file("data.json", ios::app);
+    // file>>
+}
+
+// void 
 
 void AddStudentDetails(){
     string name;
@@ -25,8 +40,10 @@ void AddStudentDetails(){
     if(name.empty()|| age<=0){
         cout<<"Invalid input"<<endl;
     } else {
-        studentsNames.push_back(name);
-        studentAges.push_back(age);
+        // studentsNames.push_back(name);
+        // studentAges.push_back(age);
+        cout<<"hello"<<endl;
+
     }
     
 }
