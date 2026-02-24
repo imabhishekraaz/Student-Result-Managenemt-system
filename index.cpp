@@ -199,8 +199,8 @@
 // }
  //friend function ------>
 
- #include<iostream>
- using namespace std;
+#include<iostream>
+using namespace std;
 
 class Student{
     private:
@@ -209,20 +209,20 @@ class Student{
         void greeting(){
             cout<<"welcome "<<names<<endl;
         }
-
     public:
         Student(string name,int salary){
             names = name;
             salarys= salary;
         }
-        friend void getdetails(Student &s){
-            
-        }
-
-
+        friend void getdetails(Student s);
 };
+void getdetails(Student s){
+    //why am i unable to access the private function od the class using the friend function
+    cout<<"Name: "<<s.names<<"Salary: "<<s.salarys<<"Greet:\n\t"<<s.greeting()<<endl;
 
+}
 int main(void){
     Student s("Abhishek",209090);
-    displayDetails(s);
+    // displayDetails(s);
+    getdetails(s);
 }
